@@ -1,6 +1,7 @@
 package br.edu.fateclins.acesso.controle;
 
 /* @author Nilson Caputti */
+
 import br.edu.fateclins.acesso.dao.PedidoDAO;
 import br.edu.fateclins.cafe.modelo.Pedido;
 import java.io.Serializable;
@@ -19,16 +20,16 @@ public class PedidoBean implements Serializable {
     private int id;
     private int idTab;
     private Date dataHora;
-    private bool pago;
-    private bool realizado;
+    private boolean pago;
+    private boolean realizado;
     private Pedido ped;
 
-    public int getIdtab() {
+    public int getIdTab() {
         return idTab;
     }
 
-    public void setIdtab(int idtab) {
-        this.idTab = idtab;
+    public void setIdTab(int idTab) {
+        this.idTab = idTab;
     }
 
     public Date getDataHora() {
@@ -43,15 +44,15 @@ public class PedidoBean implements Serializable {
         return pago;
     }
 
-    public void setPago(bool pago) {
+    public void setPago(boolean pago) {
         this.pago = pago;
     }
 
-    public bool getRealizado() {
+    public boolean getRealizado() {
         return realizado;
     }
 
-    public void setRealizado(bool realizado) {
+    public void setRealizado(boolean realizado) {
         this.realizado = realizado;
     }
 
@@ -63,6 +64,22 @@ public class PedidoBean implements Serializable {
         this.mesa = mesa;
     }
     private int mesa;
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public Pedido getPed() {
+        return ped;
+    }
+
+    public void setPed(Pedido ped) {
+        this.ped = ped;
+    }
 
     public PedidoBean() {
         prepararTela();
@@ -132,5 +149,5 @@ public class PedidoBean implements Serializable {
 
         this.ped = pedido;
         idTab = 1;
-    }    
+    }       
 }

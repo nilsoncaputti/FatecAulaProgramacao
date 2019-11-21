@@ -16,12 +16,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- *
- * @author aluno
- */
+/* @author Nilson Caputti  */
 @Entity
-public class Pedido implements Serializable{
+public class Pedido implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -33,24 +31,27 @@ public class Pedido implements Serializable{
     private boolean realizado;
     @ManyToOne
     @JoinColumn(name = "numeroMesa")
-    private Mesa mesa;
+    private Pedido pedido;
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<ItemPedido> listaItens;
 
     public Pedido() {
     }
 
-    public Pedido(Integer id, Mesa mesa) {
+    public Pedido(boolean pago, boolean realizado, Date dataHora, Integer id, Pedido pedido) {
         this.id = id;
-        this.mesa = mesa;
+        this.pedido = pedido;
+        this.pago = pago;
+        this.realizado = realizado;
+        this.dataHora = dataHora;
     }
 
-    public Mesa getMesa() {
-        return mesa;
+    public Pedido getPedido() {
+        return pedido;
     }
 
-    public void setMesa(Mesa mesa) {
-        this.mesa = mesa;
+    public void setMesa(Pedido pedido) {
+        this.pedido = pedido;
     }
 
     public Integer getId() {
@@ -94,13 +95,6 @@ public class Pedido implements Serializable{
     }
 
     @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.id);
-        return hash;
-    }
-
-    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -117,6 +111,12 @@ public class Pedido implements Serializable{
         }
         return true;
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
 }
