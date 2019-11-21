@@ -17,6 +17,8 @@ public class TipoProdutoBean {
     private TipoProduto tp;
     private List<TipoProduto> listaTipos;
     private int idTab;
+    private String descricao;
+    private String categoria;
 
     public TipoProdutoBean() {
         prepararTela();
@@ -54,8 +56,7 @@ public class TipoProdutoBean {
         TipoProdutoDAO dao = new TipoProdutoDAO();
         String msg = "";
         FacesMessage fm;
-        if ((tp.getCategoria().isEmpty())
-                || (tp.getDescricao().isEmpty())) {
+        if ((tp.getCategoria().isEmpty()) || (tp.getDescricao().isEmpty())) {
             msg = "Campos: Categoria e/ou Descrição sem preenchimento!";
             fm = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Campos em branco!", msg);
@@ -95,5 +96,21 @@ public class TipoProdutoBean {
     public void editar(TipoProduto tipo) {
         this.tp = tipo;
         idTab = 1;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 }

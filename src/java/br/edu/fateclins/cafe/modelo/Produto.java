@@ -16,10 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
-/**
- *
- * @author aluno
- */
+/* @author Nilson Caputti */
+
 @Entity
 public class Produto implements Serializable{
     @Id
@@ -34,15 +32,17 @@ public class Produto implements Serializable{
     private TipoProduto tipo;
     @Transient
     private List<ItemPedido> listaItens;
+    private String categoria;
 
     public Produto() {
     }
 
-    public Produto(Integer id, String descricao, double preco, TipoProduto tipo) {
+    public Produto(String categoria, Integer id, String descricao, double preco, TipoProduto tipo) {
         this.id = id;
         this.descricao = descricao;
         this.preco = preco;
         this.tipo = tipo;
+        this.categoria=categoria;
     }
 
     public TipoProduto getTipo() {
@@ -86,13 +86,6 @@ public class Produto implements Serializable{
     }
 
     @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 11 * hash + Objects.hashCode(this.id);
-        return hash;
-    }
-
-    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -108,6 +101,21 @@ public class Produto implements Serializable{
             return false;
         }
         return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
     
     

@@ -1,6 +1,7 @@
 package br.edu.fateclins.acesso.dao;
 
 /* @author Nilson Caputti */
+
 import br.edu.fateclins.cafe.modelo.Produto;
 import br.edu.fateclins.dao.GenericDAO;
 import java.util.List;
@@ -13,7 +14,8 @@ public class ProdutoDAO extends GenericDAO<Produto> {
     public Produto procurarPorId(Integer id) {
         try {
             return (Produto) getSessao().get(Produto.class, id);
-        } catch (Exception ex) {
+        } 
+        catch (Exception ex) {
             System.out.println("Erro procurarPoId - Produto: ");
             //ex.printStackTrace();
             //ex.getMessage();
@@ -25,10 +27,12 @@ public class ProdutoDAO extends GenericDAO<Produto> {
     public List<Produto> listarTodos() {
         try {
             Criteria qry = getSessao().createCriteria(Produto.class);
-            qry.addOrder(Order.asc("prod"));
+            //qry.addOrder(Order.asc("prod"));
             return qry.list();
-        } catch (Exception ex) {
+        } 
+        catch (Exception ex) {
             System.out.println("Erro ao listarTodos - Produto");
+            ex.getMessage();
             return null;
         }
     }
@@ -36,7 +40,8 @@ public class ProdutoDAO extends GenericDAO<Produto> {
     public String salvar(Produto pd) {
         if (procurarPorId(pd.getId()) == null) {
             return this.add(pd);
-        } else {
+        } 
+        else {
             return this.update(pd);
         }
     }

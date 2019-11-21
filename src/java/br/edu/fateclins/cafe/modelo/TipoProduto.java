@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.fateclins.cafe.modelo;
 
 import java.io.Serializable;
@@ -15,26 +10,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-
-/**
- *
- * @author aluno
- */
+/* @author Nilson Caputti */
 @Entity
-public class TipoProduto implements Serializable{
+public class TipoProduto implements Serializable {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Integer id;
-    @Column(length = 50, nullable = false)
+    @Column(length = 50, nullable = false, unique = true)
     private String descricao;
-    @Column(length = 10, nullable = false)
+    //@Column(length = 10, nullable = false)
     private String categoria;
     @Transient
     private List<Produto> listaProdutos;
 
-    public TipoProduto(Integer id, String descricao) {
+    public TipoProduto(String categoria, Integer id, String descricao) {
         this.id = id;
         this.descricao = descricao;
+        this.categoria=categoria;
     }
 
     public TipoProduto() {
@@ -74,8 +67,8 @@ public class TipoProduto implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 73 * hash + Objects.hashCode(this.id);
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -96,7 +89,5 @@ public class TipoProduto implements Serializable{
         }
         return true;
     }
-    
-    
-    
+
 }

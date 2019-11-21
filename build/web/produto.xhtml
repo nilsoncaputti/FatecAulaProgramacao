@@ -8,17 +8,15 @@
         <title>Cadastro de Produtos</title>
     </ui:define>
     <ui:define name="conteudo">
-        <h:form id="frmTipo" prependId="false" >
+        <h:form id="frmProduto" prependId="false" >
             <p:growl id="msgGeral" showDetail="true"/>
-            <p:tabView activeIndex="#{produtoBean.idTab}"
-                       id="tabs">
+            <p:tabView activeIndex="#{produtoBean.idTab}" id="tabs">
                 <p:tab title="Lista" id="lista">
                     <p:dataTable value="#{produtoBean.listaProdutos}"
-                                 var="tipo"
-                                 emptyMessage="Nenhum produto cadastrado!">
-                        <f:facet name="header">
-                            Lista de produtos do sistema
-                        </f:facet>
+                                 var="produto" rows="10"
+                                  paginator="true" paginatorPosition="bottom"
+                                 emptyMessage="Nenhum Produto Cadastrado!">
+                        <f:facet name="header">Lista de produtos do sistema</f:facet>
                         <p:column headerText="ID" style="width: 15%">
                             #{produto.id}
                         </p:column>
@@ -28,9 +26,11 @@
                         <p:column headerText="Preço" style="width: 15%">
                             #{produto.preco}
                         </p:column>
+                        <!--
                         <p:column headerText="Tipo" style="width: 25%">
-                            #{produto.tipo.tipo}
+                            #{produto.tipo}
                         </p:column>
+                        -->
                         <p:column headerText="Editar" style="width: 10%">
                             <p:commandButton icon="ui-icon-pencil"
                                              update="tabs"
@@ -58,20 +58,20 @@
                     </p:dataTable>
                 </p:tab>
                <p:tab title="Novo" id="novo">
-                    <h:inputHidden value="#{tipoBean.tp.id}"/>
+                    <h:inputHidden value="#{produtoBean.pro.id}"/>
                     <p:panelGrid columns="2" class="Wid100">
-                        <p:outputLabel value="Produto:"/>
-                        <p:inputText value="#{tipoBean.tp.categoria}"
-                                     class="Wid95"/>
+                        <p:outputLabel value="Preço"/>
+                        <p:inputText value="#{produtoBean.pro.preco}"
+                                     class="Wid15"/>
                         <p:outputLabel value="Descrição:"/>
                         <p:inputTextarea rows="3" class="Wid95"
-                                         value="#{tipoBean.tp.descricao}"/>
+                                         value="#{produtoBean.pro.descricao}"/>
                     </p:panelGrid>
                     <p:commandButton value="Salvar" icon="ui-icon-check" id="btnSalvar"
-                                     actionListener="#{tipoBean.salvar()}"
+                                     actionListener="#{produtoBean.salvar()}"
                                      update="@form"/>
                     <p:commandButton value="Limpar" icon="ui-icon-refresh" id="btnLimpar"
-                                     actionListener="#{tipoBean.limpar()}"
+                                     actionListener="#{produtoBean.limpar()}"
                                      update="@form"/>
                 </p:tab>
             </p:tabView>

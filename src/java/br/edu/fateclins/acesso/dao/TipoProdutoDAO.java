@@ -17,7 +17,7 @@ public class TipoProdutoDAO extends GenericDAO<TipoProduto> {
         } catch (Exception ex) {
             System.out.println("Erro procurarPoId - Tipo: ");
             //ex.printStackTrace();
-            ex.getMessage();
+            //ex.getMessage();
             return null;
         }
     }
@@ -26,9 +26,10 @@ public class TipoProdutoDAO extends GenericDAO<TipoProduto> {
     public List<TipoProduto> listarTodos() {
         try {
             Criteria qry = getSessao().createCriteria(TipoProduto.class);
-            qry.addOrder(Order.asc("descricao"));
+            //qry.addOrder(Order.asc("descricao"));
             return qry.list();
-        } catch (Exception ex) {
+        } 
+        catch (Exception ex) {
             System.out.println("Erro ao listarTodos - Tipo");
             System.out.println(ex.getMessage());
             ex.printStackTrace();

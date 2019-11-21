@@ -50,8 +50,7 @@ public abstract class GenericDAO<T> {
             System.out.println("ERRO UPDATE:");
             return ex.getMessage();
         }
-    }
-    
+    }    
     
     public abstract T procurarPorId(Integer id);
     public abstract List<T> listarTodos();

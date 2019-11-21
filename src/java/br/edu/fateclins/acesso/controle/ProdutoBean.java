@@ -4,15 +4,23 @@ package br.edu.fateclins.acesso.controle;
 
 import br.edu.fateclins.acesso.dao.ProdutoDAO;
 import br.edu.fateclins.cafe.modelo.Produto;
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
-public class ProdutoBean {
+@ManagedBean
+@ViewScoped
+public class ProdutoBean implements Serializable {
 
     private Produto pro;
     private List<Produto> listaProdutos;
     private int idTab;
+    private String categoria;  
+    private String descricao;
+    private int id;
 
     public ProdutoBean() {
         prepararTela();
@@ -99,6 +107,30 @@ public class ProdutoBean {
         
         this.pro = produto;
         idTab = 1;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
 

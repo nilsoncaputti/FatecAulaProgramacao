@@ -57,7 +57,8 @@ public class MesaBean  implements Serializable{
             fm = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Campos em branco!", msg);
 
-        } else {
+        } 
+        else {
             msg = dao.salvar(mesa);
             fm = new FacesMessage(FacesMessage.SEVERITY_INFO,
                     "Sucesso ao Salvar!", msg);

@@ -13,7 +13,8 @@ public class MesaDAO extends GenericDAO<Mesa> {
     public Mesa procurarPorId(Integer id) {
         try {
             return (Mesa) getSessao().get(Mesa.class, id);
-        } catch (Exception ex) {
+        } 
+        catch (Exception ex) {
             System.out.println("Erro procurarPoId - Mesa: ");
             //ex.printStackTrace();
             //ex.getMessage();
@@ -27,7 +28,8 @@ public class MesaDAO extends GenericDAO<Mesa> {
             Criteria qry = getSessao().createCriteria(Mesa.class);
             //qry.addOrder(Order.asc("setor"));
             return qry.list();
-        } catch (Exception ex) {
+        } 
+        catch (Exception ex) {
             System.out.println("Erro ao listarTodos - Mesa");
             ex.getMessage();
             return null;
@@ -37,9 +39,9 @@ public class MesaDAO extends GenericDAO<Mesa> {
     public String salvar(Mesa mesa) {
         if (procurarPorId(mesa.getId()) == null) {
             return this.add(mesa);
-        } else {
+        }
+        else {
             return this.update(mesa);
         }
     }
-
 }
