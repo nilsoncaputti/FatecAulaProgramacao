@@ -1,0 +1,43 @@
+#banner{
+    width: auto;
+    height: 140px;
+}
+#imgBanner{ 
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+}
+.Wid10{
+    width: 10%;
+}
+.Wid20{
+    width: 20%;
+}
+.Wid40{
+    width: 40%;
+}
+.Wid80{
+    width: 80%;
+}
+.Wid95{
+    width: 95%;
+}
+.Wid100{
+    width: 100%;
+}
+.TxtAlingR{
+    text-align: right;
+}
+.TxtAlingL{
+    text-align: left;
+}
+.FS80{
+    font-size: 0.8em;
+}
+
+@media screen and (max-width: 680px) {
+    #imgBanner{ 
+        height: 50%;
+    }
+}

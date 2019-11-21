@@ -1,0 +1,76 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    template="/WEB-INF/modelos/pgSistema.xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="tagTitle">
+        <title>Cadastro de Usuários</title>
+    </ui:define>
+    <ui:define name="conteudo">
+        <h:form id="frmMesa" prependId="false">
+            <p:growl id="msgGeral" showDetail="true"/>
+            <p:tabView id="tabs" activeIndex="#{mesaBean.idTab}">
+                <p:tab title="Lista" id="lista">
+                    <p:dataTable value="#{mesaBean.listaMesas}"
+                                 var="obj" rows="10"
+                                 paginator="true" paginatorPosition="bottom"
+                                 emptyMessage="Nenhuma Mesa Cadastrada">
+                        <f:facet name="header">Lista de Usuários</f:facet>
+                        <p:column headerText="ID">
+                            #{obj.id}
+                        </p:column>
+                        <p:column headerText="Numero">
+                            #{obj.numeroMesa}
+                        </p:column>
+                        <p:column headerText="Lugares">
+                            #{obj.qtdeLugares}
+                        </p:column>
+                        <p:column headerText="EDITAR">
+                            <p:commandButton icon="ui-icon-pencil"
+                                             update="tabs"
+                                             actionListener="#{mesaBean.editar(obj)}"/>
+                        </p:column>
+                        <p:column headerText="EXCLUIR">
+                            <p:commandButton icon="ui-icon-trash"
+                                             update="tabs, msgGeral"
+                                             actionListener="#{mesaBean.excluir(obj)}">
+                                <p:confirm header="Confirmar Exclusão?"
+                                           message="Você deseja realmente excluir o usuário:#{obj.numeroMesa}?"
+                                           icon="ui-icon-trash"/>
+                            </p:commandButton>
+                        </p:column>
+                    </p:dataTable>
+                </p:tab>
+                <p:tab title="Formulário" id="novo">
+                    <p:panelGrid columns="2">
+                        <p:outputLabel value="Numero Mesa: "/>
+                        <p:inputText value="#{mesaBean.mesa.numeroMesa}"/>
+                        <p:outputLabel value="Qtd Lugares: "/>
+                        <p:inputText value="#{mesaBean.mesa.qtdeLugares}"/>
+                        <p:outputLabel value="Setor: "/>
+                        <p:inputText value="#{mesaBean.mesa.setor}"/>
+                       
+                        <p:commandButton value="Salvar" icon="ui-icon-check"
+                                         update="@form"
+                                         actionListener="#{mesaBean.salvar()}"/>
+                        <p:commandButton value="Limpar" icon="ui-icon-refresh"
+                                         update="@form"
+                                         actionListener="#{mesaBean.limpar()}"/>
+                    </p:panelGrid>
+                </p:tab>
+            </p:tabView>
+            <p:confirmDialog global="true" showEffect="fade"
+                             hideEffect="explode">
+                <p:commandButton value="SIM" type="button"
+                                 icon="ui-icon-check"
+                                 styleClass="ui-confirmdialog-yes"/>
+                <p:commandButton value="NÃO" type="button"
+                                 icon="ui-icon-close"
+                                 styleClass="ui-confirmdialog-no"/>
+            </p:confirmDialog>
+        </h:form>
+    </ui:define>
+</ui:composition>
+

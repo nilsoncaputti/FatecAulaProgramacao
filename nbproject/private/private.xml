@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/java/br/edu/fateclins/acesso/modelo/TipoUsuario.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>22</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Nilson%20Caputti/Desktop/Fatec/4%20Semestre/Programação%20para%20WEB/Arquivos%20e%20Códigos%20Professor/CafeFatec/web/mesa.xhtml</file>
+            <file>file:/C:/Users/Nilson%20Caputti/Desktop/Fatec/4%20Semestre/Programação%20para%20WEB/Arquivos%20e%20Códigos%20Professor/CafeFatec/src/java/br/edu/fateclins/dao/GenericDAO.java</file>
+            <file>file:/C:/Users/Nilson%20Caputti/Desktop/Fatec/4%20Semestre/Programação%20para%20WEB/Arquivos%20e%20Códigos%20Professor/CafeFatec/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/Nilson%20Caputti/Desktop/Fatec/4%20Semestre/Programação%20para%20WEB/Arquivos%20e%20Códigos%20Professor/CafeFatec/web/usuario.xhtml</file>
+            <file>file:/C:/Users/Nilson%20Caputti/Desktop/Fatec/4%20Semestre/Programação%20para%20WEB/Arquivos%20e%20Códigos%20Professor/CafeFatec/src/java/br/edu/fateclins/acesso/controle/MesaBean.java</file>
+            <file>file:/C:/Users/Nilson%20Caputti/Desktop/Fatec/4%20Semestre/Programação%20para%20WEB/Arquivos%20e%20Códigos%20Professor/CafeFatec/src/java/br/edu/fateclins/acesso/dao/MesaDAO.java</file>
+            <file>file:/C:/Users/Nilson%20Caputti/Desktop/Fatec/4%20Semestre/Programação%20para%20WEB/Arquivos%20e%20Códigos%20Professor/CafeFatec/src/java/br/edu/fateclins/acesso/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Nilson%20Caputti/Desktop/Fatec/4%20Semestre/Programação%20para%20WEB/Arquivos%20e%20Códigos%20Professor/CafeFatec/src/java/br/edu/fateclins/acesso/controle/FiltroAcesso.java</file>
+            <file>file:/C:/Users/Nilson%20Caputti/Desktop/Fatec/4%20Semestre/Programação%20para%20WEB/Arquivos%20e%20Códigos%20Professor/CafeFatec/src/java/br/edu/fateclins/cafe/modelo/Mesa.java</file>
+        </group>
+    </open-files>
+</project-private>

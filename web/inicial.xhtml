@@ -1,0 +1,26 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    template="/WEB-INF/modelos/pgSistema.xhtml">
+    <ui:define name="tagTitle">
+        <title>Bem Vindo!</title>
+    </ui:define>
+    <ui:define name="conteudo">
+         <div class="ui-g">
+        <div class="ui-g-12 ui-md-6 ui-lg-7"></div>
+        <div class="ui-g-12 ui-md-6 ui-lg-5">
+            <p:fieldset legend="Sair com segurança"
+                        style="margin-bottom: 20px;">
+                Bem Vindo #{userSessao.nome}!
+                <h:form>
+                    <br/>
+                    <p:commandButton value="Logout" icon="ui-icon-power"
+                                     action="#{loginBean.logout()}"/>
+                </h:form>      
+            </p:fieldset>
+        </div>
+    </div>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,80 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/modelos/pgSistema.xhtml">
+    <ui:define name="tagTitle">
+        <title>Cadastro de Produtos</title>
+    </ui:define>
+    <ui:define name="conteudo">
+        <h:form id="frmTipo" prependId="false" >
+            <p:growl id="msgGeral" showDetail="true"/>
+            <p:tabView activeIndex="#{produtoBean.idTab}"
+                       id="tabs">
+                <p:tab title="Lista" id="lista">
+                    <p:dataTable value="#{produtoBean.listaProdutos}"
+                                 var="tipo"
+                                 emptyMessage="Nenhum produto cadastrado!">
+                        <f:facet name="header">
+                            Lista de produtos do sistema
+                        </f:facet>
+                        <p:column headerText="ID" style="width: 15%">
+                            #{produto.id}
+                        </p:column>
+                        <p:column headerText="Descrição" style="width: 55%">
+                            #{produto.descricao}
+                        </p:column>
+                        <p:column headerText="Preço" style="width: 15%">
+                            #{produto.preco}
+                        </p:column>
+                        <p:column headerText="Tipo" style="width: 25%">
+                            #{produto.tipo.tipo}
+                        </p:column>
+                        <p:column headerText="Editar" style="width: 10%">
+                            <p:commandButton icon="ui-icon-pencil"
+                                             update="tabs"
+                                             actionListener="#{produtoBean.editar(produto)}"/>
+                        </p:column>
+                        <p:column headerText="Excluir" style="width: 10%">
+                            <p:commandButton icon="ui-icon-trash" 
+                                             update="tabs:lista, msgGeral"
+                                             actionListener="#{produtoBean.excluir(produto)}">
+                                <p:confirm header="Confirmar exclusão?"
+                                           message="Você deseja excluir #{produto.categoria}?"
+                                           icon="ui-icon-trash"/>
+                            </p:commandButton>
+                            <p:confirmDialog global="true" showEffect="fade"
+                                             hideEffect="explode">
+                                <p:commandButton value="SIM" type="button"
+                                                 icon="ui-icon-check"
+                                                 styleClass="ui-confirmdialog-yes"/>
+                                <p:commandButton value="NÃO" type="button"
+                                                 icon="ui-icon-close"
+                                                 styleClass="ui-confirmdialog-no"/>
+                            </p:confirmDialog>
+                        </p:column>
+
+                    </p:dataTable>
+                </p:tab>
+               <p:tab title="Novo" id="novo">
+                    <h:inputHidden value="#{tipoBean.tp.id}"/>
+                    <p:panelGrid columns="2" class="Wid100">
+                        <p:outputLabel value="Produto:"/>
+                        <p:inputText value="#{tipoBean.tp.categoria}"
+                                     class="Wid95"/>
+                        <p:outputLabel value="Descrição:"/>
+                        <p:inputTextarea rows="3" class="Wid95"
+                                         value="#{tipoBean.tp.descricao}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="Salvar" icon="ui-icon-check" id="btnSalvar"
+                                     actionListener="#{tipoBean.salvar()}"
+                                     update="@form"/>
+                    <p:commandButton value="Limpar" icon="ui-icon-refresh" id="btnLimpar"
+                                     actionListener="#{tipoBean.limpar()}"
+                                     update="@form"/>
+                </p:tab>
+            </p:tabView>
+        </h:form>
+    </ui:define>
+</ui:composition>

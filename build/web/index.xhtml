@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Login: CAFÉFatec</title>
+        <h:outputStylesheet name="ajustes.css" library="css"/>
+    </h:head>
+    <h:body>
+        <h:form id="frmLogin" prependId="false">
+            <p:growl id="msgGeral" globalOnly="true" showDetail="true"/>
+            <ui:include src="WEB-INF/modelos/banner.xhtml"/>
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-3 ui-lg-3"></div>
+                <div class="ui-g-12 ui-md-6 ui-lg-6">
+                    <p:panel header="ACESSO RESTRITO"
+                             footer="Apenas pessoas autorizadas!">
+                        <div class="ui-g-12 ui-md-4 ui-lg-4">
+                            <p:outputLabel id="lblLogin" for="email"
+                                           value="Login:(e-mail):"/>   
+                        </div>
+                        <div class="ui-g-12 ui-md-8 ui-lg-8">
+                            <p:inputText id="email" style="width: 100%"
+                                         value="#{loginBean.usuario.email}"/>
+                        </div>
+                        <div class="ui-g-12 ui-md0-4 ui-lg-4">
+                            <p:outputLabel id="lblSenha" for="senha"
+                                           value="Senha:"/>   
+                        </div>
+                        <div class="ui-g-12 ui-md-8 ui-lg-8">
+                            <p:password  id="senha" style="width: 100%"
+                                         value="#{loginBean.usuario.senha}"/>
+                        </div>
+                        <p:commandButton id="btnLogar" value="Logar"
+                                         action="#{loginBean.logar}"
+                                         update="msgGeral"/>
+                                            </p:panel>
+                </div>
+                <div class="ui-g-12 ui-md-3 ui-lg-3"></div>
+            </div>
+            <ui:include src="WEB-INF/modelos/rodape.xhtml"/>
+        </h:form>
+    </h:body>
+</html>
+
